@@ -99,7 +99,6 @@ function Navbar(){
             {/* MOBILENAVVVVVVVVVVVVVVVVVVVVVVVVVVV */}
             <Drawer
                 isOpen={isOpen}
-                isOpen={isOpen}
                 placement='left'
                 onClose={onClose}
                 finalFocusRef={btnRef}
