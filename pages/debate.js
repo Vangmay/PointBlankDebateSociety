@@ -15,27 +15,48 @@ import {
     IconButton,
     Center,
     color,
+    DrawerOverlay,
+    DrawerBody,
+    DrawerContent,
+    DrawerFooter,
+
 } from '@chakra-ui/react';
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import React,{useRef,useState} from 'react';
 import {AiFillFacebook,AiFillHeart,AiFillInstagram} from 'react-icons/ai'
 import {CgWebsite} from 'react-icons/cg'
+
+// colorscheme = {
+//     purple:'#805ee7',
+//     lighter_purple:"8474c3",
+//     blue:"607ac9",
+//     darker_blue:"5460cc",
+//     darkest_blue:"3750E0"  
+// }
+
+// colorscheme_light = {
+//     Shadow_blue:"7e93c9"  
+//     Light_periwinkle:"D4DAEC"
+//     Light_lavender:"CFC6E1",
+//     Beau_blue:"CADAE0"
+//     Opal:"B7D3D3"
+// }
 
 const components = {
     Button:{
         sizes:{},
         variants:{
             dark:{
-                color:'cyan.300',
+                color:'#3750E0',
                 _hover:{
-                    color:'pink.500',
+                    color:'#805ee7',
                     textDecoration:'underline'
                 }
             },
             light:{
-                color:'black',
+                color:'#D4DAEC',
                 _hover:{
-                    color:'#d7827e',
+                    color:'#CFC6E1',
                     textDecoration:'underline'
                 }
             }
@@ -54,14 +75,13 @@ function Navbar(){
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
     const [iconDisplay,changeIconDisplay] = useState()
-    const nav_bg = useColorModeValue('gray.300','gray.800')
+    const nav_bg = useColorModeValue('#7e93c9','gray.800')
     return(
         <Box
             bg={nav_bg}
             as ='nav'
             position='fixed'
-            width='100vw'
-            
+            width='100vw'   
         >
             <Container
                 display='flex'
@@ -99,11 +119,33 @@ function Navbar(){
             {/* MOBILENAVVVVVVVVVVVVVVVVVVVVVVVVVVV */}
             <Drawer
                 isOpen={isOpen}
-                placement='left'
+                placement='top'
                 onClose={onClose}
                 finalFocusRef={btnRef}
             >
-
+                <DrawerOverlay/>
+                <DrawerContent 
+                    bg={nav_bg}     
+                >
+                    <DrawerFooter padding='12px'/>
+                    <DrawerBody>
+                    <Flex 
+                        justify="space-between" 
+                        w='full' 
+                        h='full'
+                        justifyContent="center" 
+                        align="center" 
+                        flexDirection='column'
+                        // display={['none','none','flex','flex']}
+                    >
+                        <IconButton icon = {<CloseIcon/>} bg={nav_bg} onClick={onClose} maxW='fit-content'/>
+                        <Button variant={btn_color} my={5}  marginX={2} >About</Button>
+                        <Button variant={btn_color} my={5}  marginX={2} >Register</Button>
+                        <Button variant={btn_color} my={5}  marginX={2} >Format</Button>
+                        <Button variant={btn_color} my={5}  marginX={2} >Winners</Button>
+                    </Flex>
+                    </DrawerBody>
+                </DrawerContent>
             </Drawer>
             </Container>
         </Box>
@@ -163,10 +205,3 @@ export default Debate;
 
 
 
-// colorscheme = {
-//     purple:'#805ee7',
-//     lighter_purple:"8474c3",
-//     blue:"607ac9",
-//     darker_blue:"5460cc",
-//     darkest_blue:"3750E0"  
-// }
