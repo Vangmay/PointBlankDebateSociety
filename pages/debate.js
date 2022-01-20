@@ -74,14 +74,15 @@ function Navbar(){
     const btn_color = useColorModeValue('light','dark') 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
-    const [iconDisplay,changeIconDisplay] = useState()
     const nav_bg = useColorModeValue('#BEE3F8','gray.800')
     return(
         <Box
+        w='100%'
         bg={nav_bg}
         as ='nav'
-        width='100vw'   
-        minH={70}
+        padding={0}
+        margin={0}
+        minH={75}
         alignContent='center'
         display='flex'
         justifyContent='center'
@@ -96,29 +97,30 @@ function Navbar(){
                 justify='space-between'
                 w='full'
                 >
-                <Flex align='Center' w='full'>
-                    school_mascot
-                </Flex>
+                school_mascot
+                
                  <Flex 
                     justify="space-between" 
                     w='full' 
                     justifyContent="center" 
                     align="center" 
                     display={['none','none','flex','flex']}
-                    >
+                >
                     <Button variant={btn_color} _focus={{outline:'none'}} >About</Button>
                     <Button variant={btn_color} _focus={{outline:'none'}} >Register</Button>
                     <Button variant={btn_color} _focus={{outline:'none'}} >Format</Button>
                     <Button variant={btn_color} _focus={{outline:'none'}} >Winners</Button>
                 </Flex>
-                <Switch size='md' onChange={toggleColorMode} marginRight={5}/>
+                <Box p={4} height='full' width='100%'>
+                    <Switch size='sm' onChange={toggleColorMode} padding='none' />
+                </Box>
                 <IconButton
                     icon = {<HamburgerIcon/>}
                     onClick={onOpen}
                     display={['flex','flex','none','none']}
                     marginRight={12}
                     ref={btnRef}
-                    />
+                />
             {/* MOBILENAVVVVVVVVVVVVVVVVVVVVVVVVVVV */}
             <Drawer
                 isOpen={isOpen}
@@ -160,8 +162,6 @@ function Body(){
     return(
         <>
             <Box bg='gray.400' aria-label="Introduction">
-                <Heading fontSize='xxx-large'>Who are we?</Heading>
-                <Heading fontSize='xxx-large'>We are the point blank debate society </Heading>
                 
             </Box>
             <Box 
