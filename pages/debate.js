@@ -19,12 +19,12 @@ import {
     DrawerBody,
     DrawerContent,
     DrawerFooter,
-
 } from '@chakra-ui/react';
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import React,{useRef,useState} from 'react';
 import {AiFillFacebook,AiFillHeart,AiFillInstagram} from 'react-icons/ai'
-import {CgWebsite} from 'react-icons/cg'
+import { CgWebsite} from 'react-icons/cg'
+import { Widget } from '@typeform/embed-react';
 
 // colorscheme = {
 //     purple:'#805ee7',
@@ -47,16 +47,16 @@ const components = {
         sizes:{},
         variants:{
             dark:{
-                color:'#3750E0',
+                color:'#4299E1',
                 _hover:{
-                    color:'#805ee7',
+                    color:'#BEE3F8',
                     textDecoration:'underline'
                 }
             },
             light:{
-                color:'#D4DAEC',
+                color:'black',
                 _hover:{
-                    color:'#CFC6E1',
+                    color:'#0987A0',
                     textDecoration:'underline'
                 }
             }
@@ -75,13 +75,16 @@ function Navbar(){
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
     const [iconDisplay,changeIconDisplay] = useState()
-    const nav_bg = useColorModeValue('#7e93c9','gray.800')
+    const nav_bg = useColorModeValue('#BEE3F8','gray.800')
     return(
         <Box
-            bg={nav_bg}
-            as ='nav'
-            position='fixed'
-            width='100vw'   
+        bg={nav_bg}
+        as ='nav'
+        width='100vw'   
+        minH={70}
+        alignContent='center'
+        display='flex'
+        justifyContent='center'
         >
             <Container
                 display='flex'
@@ -92,7 +95,7 @@ function Navbar(){
                 alignItems='center'
                 justify='space-between'
                 w='full'
-            >
+                >
                 <Flex align='Center' w='full'>
                     school_mascot
                 </Flex>
@@ -103,10 +106,10 @@ function Navbar(){
                     align="center" 
                     display={['none','none','flex','flex']}
                     >
-                    <Button variant={btn_color}>About</Button>
-                    <Button variant={btn_color}>Register</Button>
-                    <Button variant={btn_color}>Format</Button>
-                    <Button variant={btn_color}>Winners</Button>
+                    <Button variant={btn_color} _focus={{outline:'none'}} >About</Button>
+                    <Button variant={btn_color} _focus={{outline:'none'}} >Register</Button>
+                    <Button variant={btn_color} _focus={{outline:'none'}} >Format</Button>
+                    <Button variant={btn_color} _focus={{outline:'none'}} >Winners</Button>
                 </Flex>
                 <Switch size='md' onChange={toggleColorMode} marginRight={5}/>
                 <IconButton
@@ -115,18 +118,18 @@ function Navbar(){
                     display={['flex','flex','none','none']}
                     marginRight={12}
                     ref={btnRef}
-                />
+                    />
             {/* MOBILENAVVVVVVVVVVVVVVVVVVVVVVVVVVV */}
             <Drawer
                 isOpen={isOpen}
                 placement='top'
                 onClose={onClose}
                 finalFocusRef={btnRef}
-            >
+                >
                 <DrawerOverlay/>
                 <DrawerContent 
                     bg={nav_bg}     
-                >
+                    >
                     <DrawerFooter padding='12px'/>
                     <DrawerBody>
                     <Flex 
@@ -137,12 +140,12 @@ function Navbar(){
                         align="center" 
                         flexDirection='column'
                         // display={['none','none','flex','flex']}
-                    >
+                        >
                         <IconButton icon = {<CloseIcon/>} bg={nav_bg} onClick={onClose} maxW='fit-content'/>
-                        <Button variant={btn_color} my={5}  marginX={2} >About</Button>
-                        <Button variant={btn_color} my={5}  marginX={2} >Register</Button>
-                        <Button variant={btn_color} my={5}  marginX={2} >Format</Button>
-                        <Button variant={btn_color} my={5}  marginX={2} >Winners</Button>
+                        <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >About</Button>
+                        <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Register</Button>
+                        <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Format</Button>
+                        <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Winners</Button>
                     </Flex>
                     </DrawerBody>
                 </DrawerContent>
@@ -155,32 +158,50 @@ function Navbar(){
 
 function Body(){
     return(
-        <Box bg='gray.400' height='100vh'>
-
-        </Box>
+        <>
+            <Box bg='gray.400' aria-label="Introduction">
+                <Heading fontSize='xxx-large'>Who are we?</Heading>
+                <Heading fontSize='xxx-large'>We are the point blank debate society </Heading>
+                
+            </Box>
+            <Box 
+                bg='gray.400' 
+                height='100vh' 
+                width='100vw' 
+                display='flex' 
+                justifyContent='center' 
+                paddingTop={5}
+                paddingBottom={5}
+            >
+                <Widget id="z552lHMM" style={{ width: '75%' , height:'75%' }} className="my-form"></Widget>
+            </Box>
+        </>
     )    
 }
 
 
 function Footer(){
+    const nav_bg = useColorModeValue('#BEE3F8','gray.800')
     return(
         <Box
-            w='full'
-            bg='gray.900'
-            alignContent='center'
-            textAlign='center'
-            padding='10px'
+        w='full'
+        bg={nav_bg}
+        alignContent='center'
+        textAlign='center'
+        padding='10px'
         >
-            <HStack>
-                <Heading 
-                    color='gray.400' 
-                    size='xs'
-                    width='full'
-                >
-                    This website is made by Vangmay in collaboration with the literary club. 
-                    More details about our school can be found from the following links.
-                </Heading>
-                <VStack  width='full'>
+            <HStack justifyContent='space-around'>
+                    <Heading 
+                        color={useColorModeValue('#414141','gray.500')} 
+                        size='xs'
+                        
+                        overflow='hidden'
+                    >
+                        This website is made by Vangmay in collaboration with the literary club. 
+                        More details about our school can be found from the following links.
+                    </Heading>
+                
+                <VStack  >
                     <Button leftIcon={<AiFillFacebook/>} minW='140px'>Facebook</Button>
                     <Button leftIcon={<AiFillInstagram/>} minWidth='140px' >Instagram</Button>
                     <Button leftIcon={<CgWebsite/>} minWidth='140px'>Website</Button>
