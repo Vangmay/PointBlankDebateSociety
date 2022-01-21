@@ -20,8 +20,9 @@ import {
     DrawerContent,
     DrawerFooter,
     Text,
-    Spacer
+    Link
 } from '@chakra-ui/react';
+import { Link as Linkk, animateScroll as scroll } from "react-scroll";
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import React,{useRef,useState} from 'react';
 import {AiFillFacebook,AiFillHeart,AiFillInstagram} from 'react-icons/ai'
@@ -100,14 +101,12 @@ function Navbar(){
         >
             <Container
                 display='flex'
-                p={2}
                 maxW='100%'
                 wrap='wrap'
                 align='center'
                 alignItems='center'
-                justify='space-between'
                 w='100%'
-                justifyContent='center'
+                justifyContent='space-between'
                 >
                 school_mascot
                 
@@ -118,24 +117,25 @@ function Navbar(){
                     align="center" 
                     display={['none','none','flex','flex']}
                 >
-                    <Button variant={btn_color} _focus={{outline:'none'}} >About</Button>
-                    <Button variant={btn_color} _focus={{outline:'none'}} >Register</Button>
-                    <Button variant={btn_color} _focus={{outline:'none'}} >Format</Button>
-                    <Button variant={btn_color} _focus={{outline:'none'}} >Winners</Button>
+                    <Linkk  to="about"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >About</Button></Linkk>
+                    <Linkk  to="competition"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >comp_name</Button></Linkk>
+                    <Linkk  to="format"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Format</Button></Linkk>
+                    <Linkk  to="register"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Register</Button></Linkk>
                 </Flex>
-                <Box p={4} mx={12} overflow='hidden' height='100%' width='80%' >
-                    <IconButton
-                        icon={colorMode === "light" ? <RiMoonFill /> : <RiSunLine />}
-                        onClick={toggleColorMode}
-                        borderRadius={50}
-                    />
-                </Box>
+                <IconButton
+                    icon={colorMode === "light" ? <RiMoonFill /> : <RiSunLine />}
+                    onClick={toggleColorMode}
+                    borderRadius={50}
+                    zIndex='10000'
+                    marginX={12}
+                />
                 <IconButton
                     icon = {<HamburgerIcon/>}
                     onClick={onOpen}
                     display={['flex','flex','none','none']}
                     marginRight={12}
                     ref={btnRef}
+                    w='20px'
                 />
             {/* MOBILENAVVVVVVVVVVVVVVVVVVVVVVVVVVV */}
             <Drawer
@@ -161,11 +161,19 @@ function Navbar(){
                         padding={10}
                         // display={['none','none','flex','flex']}
                         >
-                        <IconButton icon = {<CloseIcon/>} bg={nav_bg} onClick={onClose} maxW='fit-content'/>
-                        <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >About</Button>
-                        <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Register</Button>
-                        <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Format</Button>
-                        <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Winners</Button>
+                        <IconButton icon = {<CloseIcon/>} bg={nav_bg} my={5}  marginX={2} onClick={onClose} maxW='fit-content'/>
+                        <Linkk  to="about"smooth={true} duration={1000}>
+                            <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >About</Button>
+                        </Linkk>
+                        <Linkk  to="competition"smooth={true} duration={1000}>
+                            <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Register</Button>
+                        </Linkk>
+                        <Linkk  to="format"smooth={true} duration={1000}>
+                            <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Format</Button>
+                        </Linkk>
+                        <Linkk  to="register"smooth={true} duration={1000}>
+                            <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Winners</Button>
+                        </Linkk>
                     </Flex>
                     </DrawerBody>
                 </DrawerContent>
@@ -176,7 +184,7 @@ function Navbar(){
 }
 
 function Card(props){
-    const card_bg=useColorModeValue('blue.300','blue.800')
+    const card_bg=useColorModeValue('teal.300','blue.800')
     return(
         <Box height='100%' width='500px' borderRadius={12}>
             <Center bg={card_bg} height='100%' flexDir='column'>
@@ -199,10 +207,10 @@ function Card(props){
 function Body(){
     const box_bg = useColorModeValue('teal.300','cyan.500')
     const secondary_boxBg = useColorModeValue('cyan.200','purple.500')
-    const tertiary_boxBg = useColorModeValue('teal.500','cyan.200')
+    const tertiary_boxBg = useColorModeValue('blue.300','blue.500')
     return(
         <>
-            <Box bg={box_bg} height='100vh' width='100%' aria-label="Introduction">
+            <Box bg={box_bg} className='about' height='100vh' width='100%' aria-label="Introduction">
                 <HStack height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
                     <Box 
                         h='100%' 
@@ -219,7 +227,8 @@ function Body(){
                     </Center>
                 </HStack>
             </Box>
-            <Box bg={secondary_boxBg} height='100vh' width='100%' aria-label="AboutCompetition">
+
+            <Box className='competition' bg={secondary_boxBg} height='100vh' width='100%' aria-label="AboutCompetition">
                 <HStack height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
                     <Center padding='0' width='100%' height='100%' display='flex' flexDir='column' margin='0px'>
                         <Heading textAlign='center' overflow='hidden' >What is [CompetitionName]?</Heading>
@@ -243,14 +252,16 @@ function Body(){
                 </HStack>
 
             </Box>
-            <Box bg={tertiary_boxBg} padding={12} height='100vh' width='100%' aria-label="AboutCompetition">
+
+            <Box className='format' bg={tertiary_boxBg} padding={12} height='100vh' width='100%' aria-label="AboutCompetition">
                 <HStack 
-                    bg='blue.900' 
+                    bg={useColorModeValue('teal.200','blue.900')} 
                     height='100%' 
                     width='100%' 
                     justifyContent='space-evenly'
                     flexDirection={{base:'column',md:'column',lg:'row'}}
                     padding={12}
+                    borderRadius={12}
                 >
                     <Card title='Day-1' desc="Small description of what happens in day 1"></Card>
                     <Card title='Day-2' desc="Small description of what happens in day 2"></Card>
@@ -258,6 +269,7 @@ function Body(){
                 </HStack>
                 
             </Box>
+
             <Box 
                 bg='gray.400' 
                 height='100vh' 
@@ -267,8 +279,9 @@ function Body(){
                 alignContent='center'
                 textAlign='center'
                 paddingTop={5}
+                className='register'
             >
-                <Widget id="z552lHMM" style={{ zIndex:10,width: '90%' , height:'90%' }} className="my-form"></Widget>
+                <Widget id="z552lHMM" style={{ zIndex:10,width: '100%' , height:'100%' }} className="my-form"></Widget>
             </Box>
         </>
     )    
@@ -303,9 +316,15 @@ function Footer(){
                 textAlign='right'
                 height='100%'
             >
-                <Button leftIcon={<AiFillFacebook/> } minW='140px'>Facebook</Button>
+                <Link _hover='none'href='http://www.cmseducation.org/cambridge/' target='_blank' w='fit-content'>
+                    <Button leftIcon={<CgWebsite/>} minWidth='140px'>Website</Button>
+                </Link>
+                <Link _hover='none'href='https://www.instagram.com/cms.cambridge/http://www.cmseducation.org/cambridge/' target='_blank' w='fit-content'>
                 <Button leftIcon={<AiFillInstagram/>} minWidth='140px' >Instagram</Button>
-                <Button leftIcon={<CgWebsite/>} minWidth='140px'>Website</Button>
+                </Link>
+                <Link _hover='none'href='https://www.facebook.com/cmsgn2cambridge/' target='_blank' w='fit-content'>
+                    <Button leftIcon={<AiFillFacebook/> } minW='140px'>Facebook</Button>
+                </Link>
             </VStack>
         </HStack>
     )
