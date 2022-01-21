@@ -19,6 +19,7 @@ import {
     DrawerBody,
     DrawerContent,
     DrawerFooter,
+    Text
 } from '@chakra-ui/react';
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import React,{useRef,useState} from 'react';
@@ -59,11 +60,16 @@ const components = {
                     color:'#0987A0',
                     textDecoration:'underline'
                 }
+            },
+            socialLight:{
+                color:"red",
+                _hover:{
+                    backgroundColor:'red'
+                }
             }
         }
-    }
+    },
 }
-
 export const NewTheme = extendTheme({
     components
 })
@@ -77,7 +83,7 @@ function Navbar(){
     const nav_bg = useColorModeValue('#BEE3F8','gray.800')
     return(
         <Box
-        w='100%'
+        w='100vw'
         bg={nav_bg}
         as ='nav'
         padding={0}
@@ -86,16 +92,18 @@ function Navbar(){
         alignContent='center'
         display='flex'
         justifyContent='center'
+        overflow='hidden'
         >
             <Container
                 display='flex'
                 p={2}
-                maxW='container.md'
+                maxW='100%'
                 wrap='wrap'
                 align='center'
                 alignItems='center'
                 justify='space-between'
-                w='full'
+                w='100%'
+                justifyContent='center'
                 >
                 school_mascot
                 
@@ -111,8 +119,8 @@ function Navbar(){
                     <Button variant={btn_color} _focus={{outline:'none'}} >Format</Button>
                     <Button variant={btn_color} _focus={{outline:'none'}} >Winners</Button>
                 </Flex>
-                <Box p={4} height='full' width='100%'>
-                    <Switch size='sm' onChange={toggleColorMode} padding='none' />
+                <Box p={4} mx={12} overflow='hidden' height='100%' width='80%' >
+                <Switch size='sm' style={{width:"100%",height:"100%",overflow:"hidden"}}onChange={toggleColorMode} padding='none' />
                 </Box>
                 <IconButton
                     icon = {<HamburgerIcon/>}
@@ -127,11 +135,12 @@ function Navbar(){
                 placement='top'
                 onClose={onClose}
                 finalFocusRef={btnRef}
+                padding={10}
                 >
                 <DrawerOverlay/>
                 <DrawerContent 
-                    bg={nav_bg}     
-                    >
+                    bg={nav_bg} 
+                >
                     <DrawerFooter padding='12px'/>
                     <DrawerBody>
                     <Flex 
@@ -141,6 +150,7 @@ function Navbar(){
                         justifyContent="center" 
                         align="center" 
                         flexDirection='column'
+                        padding={10}
                         // display={['none','none','flex','flex']}
                         >
                         <IconButton icon = {<CloseIcon/>} bg={nav_bg} onClick={onClose} maxW='fit-content'/>
@@ -159,10 +169,23 @@ function Navbar(){
 
 
 function Body(){
+    const box_bg = useColorModeValue('teal.300','cyan.500')
     return(
         <>
-            <Box bg='gray.400' aria-label="Introduction">
-                
+            <Box bg={box_bg} height='100vh' width='100%' aria-label="Introduction">
+                <HStack height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
+                    <Box 
+                        h='100%' 
+                        w='100%' 
+                        background="" 
+                        backgroundSize='cover'
+                        backgroundRepeat='no-repeat'
+                    /> 
+                    <Center padding='0' width='100%' height='100%' display='flex' flexDir='column' margin='0px'>
+                        <Heading textAlign='center' overflow='hidden' >Who are we?</Heading>
+                        <Heading overflow='hidden' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >We are we</Heading>
+                    </Center>
+                </HStack>
             </Box>
             <Box 
                 bg='gray.400' 
@@ -170,10 +193,11 @@ function Body(){
                 width='100vw' 
                 display='flex' 
                 justifyContent='center' 
+                alignContent='center'
+                textAlign='center'
                 paddingTop={5}
-                paddingBottom={5}
             >
-                <Widget id="z552lHMM" style={{ width: '75%' , height:'75%' }} className="my-form"></Widget>
+                <Widget id="z552lHMM" style={{ width: '90%' , height:'90%' }} className="my-form"></Widget>
             </Box>
         </>
     )    
@@ -183,31 +207,37 @@ function Body(){
 function Footer(){
     const nav_bg = useColorModeValue('#BEE3F8','gray.800')
     return(
-        <Box
-        w='full'
+        <HStack
+        w='100vw'
         bg={nav_bg}
         alignContent='center'
         textAlign='center'
         padding='10px'
+        flexDir='row'
+
         >
-            <HStack justifyContent='space-around'>
-                    <Heading 
-                        color={useColorModeValue('#414141','gray.500')} 
-                        size='xs'
-                        
-                        overflow='hidden'
-                    >
-                        This website is made by Vangmay in collaboration with the literary club. 
-                        More details about our school can be found from the following links.
-                    </Heading>
-                
-                <VStack  >
-                    <Button leftIcon={<AiFillFacebook/>} minW='140px'>Facebook</Button>
-                    <Button leftIcon={<AiFillInstagram/>} minWidth='140px' >Instagram</Button>
-                    <Button leftIcon={<CgWebsite/>} minWidth='140px'>Website</Button>
-                </VStack>
-            </HStack>
-        </Box>
+            <Heading 
+                color={useColorModeValue('#414141','gray.500')} 
+                size='xs'
+                width='100%'
+                overflow='hidden'
+                height='100%'
+            >
+                This website is made by Vangmay in collaboration with the literary club. 
+                More details about our school can be found from the following links.
+            </Heading>
+            <VStack 
+                width='100%' 
+                alignContent='right' 
+                alignContent='flex-start'
+                textAlign='right'
+                height='100%'
+            >
+                <Button leftIcon={<AiFillFacebook/> } minW='140px'>Facebook</Button>
+                <Button leftIcon={<AiFillInstagram/>} minWidth='140px' >Instagram</Button>
+                <Button leftIcon={<CgWebsite/>} minWidth='140px'>Website</Button>
+            </VStack>
+        </HStack>
     )
 }
 
