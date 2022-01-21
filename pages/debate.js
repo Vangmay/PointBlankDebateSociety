@@ -27,6 +27,7 @@ import React,{useRef,useState} from 'react';
 import {AiFillFacebook,AiFillHeart,AiFillInstagram} from 'react-icons/ai'
 import { CgWebsite} from 'react-icons/cg'
 import { Widget } from '@typeform/embed-react';
+import { RiMoonFill, RiSunLine } from "react-icons/ri";
 
 // colorscheme = {
 //     purple:'#805ee7',
@@ -123,7 +124,11 @@ function Navbar(){
                     <Button variant={btn_color} _focus={{outline:'none'}} >Winners</Button>
                 </Flex>
                 <Box p={4} mx={12} overflow='hidden' height='100%' width='80%' >
-                <Switch size='sm' style={{width:"100%",height:"100%",overflow:"hidden"}}onChange={toggleColorMode} padding='none' />
+                    <IconButton
+                        icon={colorMode === "light" ? <RiMoonFill /> : <RiSunLine />}
+                        onClick={toggleColorMode}
+                        borderRadius={50}
+                    />
                 </Box>
                 <IconButton
                     icon = {<HamburgerIcon/>}
@@ -173,7 +178,7 @@ function Navbar(){
 function Card(props){
     const card_bg=useColorModeValue('blue.300','blue.800')
     return(
-        <Box height='100%' width='500px'>
+        <Box height='100%' width='500px' borderRadius={12}>
             <Center bg={card_bg} height='100%' flexDir='column'>
                 <Heading
                     overflow='hidden'
@@ -239,7 +244,14 @@ function Body(){
 
             </Box>
             <Box bg={tertiary_boxBg} padding={12} height='100vh' width='100%' aria-label="AboutCompetition">
-                <HStack bg='blue.900' height='100%' width='100%' justifyContent='space-around' flexDirection={{base:'column',md:'row',lg:'row'}}>
+                <HStack 
+                    bg='blue.900' 
+                    height='100%' 
+                    width='100%' 
+                    justifyContent='space-evenly'
+                    flexDirection={{base:'column',md:'column',lg:'row'}}
+                    padding={12}
+                >
                     <Card title='Day-1' desc="Small description of what happens in day 1"></Card>
                     <Card title='Day-2' desc="Small description of what happens in day 2"></Card>
                     <Card title='Day-3' desc="Small description of what happens in day 3"></Card>
