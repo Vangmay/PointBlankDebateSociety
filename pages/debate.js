@@ -288,7 +288,6 @@ function Footer(){
             <VStack 
                 width='100%' 
                 alignContent='right' 
-                alignContent='flex-start'
                 textAlign='right'
                 height='100%'
             >
