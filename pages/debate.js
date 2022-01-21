@@ -19,7 +19,8 @@ import {
     DrawerBody,
     DrawerContent,
     DrawerFooter,
-    Text
+    Text,
+    Spacer
 } from '@chakra-ui/react';
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import React,{useRef,useState} from 'react';
@@ -89,10 +90,12 @@ function Navbar(){
         padding={0}
         margin={0}
         minH={75}
+        position='fixed'
         alignContent='center'
         display='flex'
         justifyContent='center'
         overflow='hidden'
+        zIndex='100000000000'
         >
             <Container
                 display='flex'
@@ -167,9 +170,31 @@ function Navbar(){
     )
 }
 
+function Card(props){
+    const card_bg=useColorModeValue('blue.300','blue.800')
+    return(
+        <Box height='100%' width='500px'>
+            <Center bg={card_bg} height='100%' flexDir='column'>
+                <Heading
+                    overflow='hidden'
+                >
+                    {props.title}
+                </Heading>
+                <Heading
+                    fontSize={{base:'10px',md:'15px'}}
+                    overflow='hidden'
+                >
+                    {props.desc}
+                </Heading>
+            </Center>
+        </Box>
+    )
+}
 
 function Body(){
     const box_bg = useColorModeValue('teal.300','cyan.500')
+    const secondary_boxBg = useColorModeValue('cyan.200','purple.500')
+    const tertiary_boxBg = useColorModeValue('teal.500','cyan.200')
     return(
         <>
             <Box bg={box_bg} height='100vh' width='100%' aria-label="Introduction">
@@ -183,9 +208,43 @@ function Body(){
                     /> 
                     <Center padding='0' width='100%' height='100%' display='flex' flexDir='column' margin='0px'>
                         <Heading textAlign='center' overflow='hidden' >Who are we?</Heading>
-                        <Heading overflow='hidden' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >We are we</Heading>
+                        <Heading overflow='hidden' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ullamcorper turpis et est aliquam molestie. Donec venenatis augue justo, ac eleifend neque lacinia at. Donec placerat arcu nec commodo imperdiet. Etiam turpis mi, tristique eget placerat ornare, hendrerit at tortor. Donec in lacus nec risus accumsan ornare. Sed eros nisl, laoreet nec justo eget, dictum feugiat odio. Nullam tristique aliquam tristique. Proin magna dolor, porttitor sed ex imperdiet, scelerisque facilisis lorem. Pellentesque scelerisque libero a hendrerit varius.
+                        </Heading>
                     </Center>
                 </HStack>
+            </Box>
+            <Box bg={secondary_boxBg} height='100vh' width='100%' aria-label="AboutCompetition">
+                <HStack height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
+                    <Center padding='0' width='100%' height='100%' display='flex' flexDir='column' margin='0px'>
+                        <Heading textAlign='center' overflow='hidden' >What is [CompetitionName]?</Heading>
+                        <Heading overflow='hidden' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Vestibulum ullamcorper turpis et est aliquam molestie. 
+                            Donec venenatis augue justo, ac eleifend neque lacinia at. 
+                            Donec placerat arcu nec commodo imperdiet. 
+                            Etiam turpis mi, tristique eget placerat ornare, hendrerit at tortor. 
+                            Donec in lacus nec risus accumsan ornare. Sed eros nisl, laoreet nec justo eget, dictum feugiat odio. Nullam tristique aliquam tristique. 
+                            Proin magna dolor, porttitor sed ex imperdiet, scelerisque facilisis lorem. Pellentesque scelerisque libero a hendrerit varius.
+                        </Heading>
+                    </Center>
+                    <Box 
+                        h='100%' 
+                        w='100%' 
+                        background="" 
+                        backgroundSize='cover'
+                        backgroundRepeat='no-repeat'
+                    /> 
+                </HStack>
+
+            </Box>
+            <Box bg={tertiary_boxBg} padding={12} height='100vh' width='100%' aria-label="AboutCompetition">
+                <HStack bg='blue.900' height='100%' width='100%' justifyContent='space-around' flexDirection={{base:'column',md:'row',lg:'row'}}>
+                    <Card title='Day-1' desc="Small description of what happens in day 1"></Card>
+                    <Card title='Day-2' desc="Small description of what happens in day 2"></Card>
+                    <Card title='Day-3' desc="Small description of what happens in day 3"></Card>
+                </HStack>
+                
             </Box>
             <Box 
                 bg='gray.400' 
@@ -197,7 +256,7 @@ function Body(){
                 textAlign='center'
                 paddingTop={5}
             >
-                <Widget id="z552lHMM" style={{ width: '90%' , height:'90%' }} className="my-form"></Widget>
+                <Widget id="z552lHMM" style={{ zIndex:10,width: '90%' , height:'90%' }} className="my-form"></Widget>
             </Box>
         </>
     )    
