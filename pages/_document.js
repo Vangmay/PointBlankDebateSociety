@@ -7,6 +7,7 @@ export default class Document extends NextDocument {
     return (
       <Html lang='en'>
         <Head />
+        <title>Arguably The Best</title>
         <body>
           <ColorModeScript initialColorMode='dark' />
           <Main />

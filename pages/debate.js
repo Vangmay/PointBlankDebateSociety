@@ -118,7 +118,7 @@ function Navbar(){
                     display={['none','none','flex','flex']}
                 >
                     <Linkk  to="about"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >About</Button></Linkk>
-                    <Linkk  to="competition"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >comp_name</Button></Linkk>
+                    <Linkk  to="competition"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Arguably The Best</Button></Linkk>
                     <Linkk  to="format"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Format</Button></Linkk>
                     <Linkk  to="register"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Register</Button></Linkk>
                 </Flex>
@@ -215,14 +215,17 @@ function Body(){
                     <Box 
                         h='100%' 
                         w='100%' 
-                        background="" 
+                        background="url(/Image/PointBlank.png)" 
                         backgroundSize='cover'
+                        backgroundPosition='upper'
                         backgroundRepeat='no-repeat'
                     /> 
                     <Center padding='0' width='100%' height='100%' display='flex' flexDir='column' margin='0px'>
                         <Heading textAlign='center' overflow='hidden' >Who are we?</Heading>
                         <Heading overflow='hidden' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ullamcorper turpis et est aliquam molestie. Donec venenatis augue justo, ac eleifend neque lacinia at. Donec placerat arcu nec commodo imperdiet. Etiam turpis mi, tristique eget placerat ornare, hendrerit at tortor. Donec in lacus nec risus accumsan ornare. Sed eros nisl, laoreet nec justo eget, dictum feugiat odio. Nullam tristique aliquam tristique. Proin magna dolor, porttitor sed ex imperdiet, scelerisque facilisis lorem. Pellentesque scelerisque libero a hendrerit varius.
+                            The Point Blank Debate Society is a subsidiary of The Literary Club run by the students of City Montessori School Cambridge Section.
+                            We are passionate about finding solutions to today’s problems through discourse and we welcome all enthusiastic participants to our very own debate competition; 
+                            Arguably the best.
                         </Heading>
                     </Center>
                 </HStack>
@@ -230,22 +233,18 @@ function Body(){
 
             <Box className='competition' bg={secondary_boxBg} height='100vh' width='100%' aria-label="AboutCompetition">
                 <HStack height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
-                    <Center padding='0' width='100%' height='100%' display='flex' flexDir='column' margin='0px'>
-                        <Heading textAlign='center' overflow='hidden' >What is [CompetitionName]?</Heading>
+                    <Center padding='0' width='100%' height='100%' width='100%'display='flex' flexDir='column' margin='0px'>
+                        <Heading textAlign='center' overflow='hidden' >What is Arguably The Best?</Heading>
                         <Heading overflow='hidden' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Vestibulum ullamcorper turpis et est aliquam molestie. 
-                            Donec venenatis augue justo, ac eleifend neque lacinia at. 
-                            Donec placerat arcu nec commodo imperdiet. 
-                            Etiam turpis mi, tristique eget placerat ornare, hendrerit at tortor. 
-                            Donec in lacus nec risus accumsan ornare. Sed eros nisl, laoreet nec justo eget, dictum feugiat odio. Nullam tristique aliquam tristique. 
-                            Proin magna dolor, porttitor sed ex imperdiet, scelerisque facilisis lorem. Pellentesque scelerisque libero a hendrerit varius.
+                        As the name implies, our debate competitions aims to find answers through the rigorous path of critical thinking. 
+                        No angle goes unexplored when participants dissect each claim and present their views. 
+                        Arguments laid out and scrutinised to find the best answers is what makes us Arguably The Best.
                         </Heading>
                     </Center>
                     <Box 
                         h='100%' 
                         w='100%' 
-                        background="" 
+                        background="url(/Image/cover.png)"
                         backgroundSize='cover'
                         backgroundRepeat='no-repeat'
                     /> 
@@ -281,7 +280,7 @@ function Body(){
                 paddingTop={5}
                 className='register'
             >
-                <Widget id="z552lHMM" style={{ zIndex:10,width: '100%' , height:'100%' }} className="my-form"></Widget>
+                <Widget id="z552lHMM" style={{ zIndex:10,width: '80%' , height:'90%' }} className="my-form"></Widget>
             </Box>
         </>
     )    
@@ -298,7 +297,6 @@ function Footer(){
         textAlign='center'
         padding='10px'
         flexDir='row'
-
         >
             <Heading 
                 color={useColorModeValue('#414141','gray.500')} 
