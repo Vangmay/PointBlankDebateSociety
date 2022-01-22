@@ -233,7 +233,7 @@ function Body(){
 
             <Box className='competition' bg={secondary_boxBg} height='100vh' width='100%' aria-label="AboutCompetition">
                 <HStack height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
-                    <Center padding='0' width='100%' height='100%' width='100%'display='flex' flexDir='column' margin='0px'>
+                    <Center padding='0' height='100%' width='100%'display='flex' flexDir='column' margin='0px'>
                         <Heading textAlign='center' overflow='hidden' >What is Arguably The Best?</Heading>
                         <Heading overflow='hidden' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
                         As the name implies, our debate competitions aims to find answers through the rigorous path of critical thinking. 
