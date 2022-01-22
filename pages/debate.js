@@ -244,7 +244,7 @@ function Body(){
                     <Box 
                         h='100%' 
                         w='100%' 
-                        background="url(/Image/cover.png)"
+                        background="url(/Image/cover.PNG)"
                         backgroundSize='cover'
                         backgroundRepeat='no-repeat'
                     /> 
