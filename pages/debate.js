@@ -216,23 +216,23 @@ function Body(){
     return(
         <>
             <Box bg={box_bg} className='about' height='100vh' width='100%' aria-label="Introduction">
-                <HStack height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
-                    <Box 
-                        h='100%' 
-                        w='100%' 
-                        background="url(/Image/PointBlank.png)" 
-                        backgroundSize='cover'
-                        backgroundPosition='upper'
-                        backgroundRepeat='no-repeat'
-                    /> 
-                    <Center padding='0' width='100%' height='100%' display='flex' flexDir='column' margin='0px'>
-                        <Heading textAlign='center' overflow='hidden' >Who are we?</Heading>
-                        <Heading overflow='hidden' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
-                            The Point Blank Debate Society is a subsidiary of The Literary Club run by the students of City Montessori School Cambridge Section.
-                            We are passionate about finding solutions to today’s problems through discourse and we welcome all enthusiastic participants to our very own debate competition; 
-                            Arguably the best.
-                        </Heading>
-                    </Center>
+                <HStack  justifyContent='center'height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
+                        <Center textAlign='center' display='flex' justifyContent='center' flexDirection='column' padding='0' width='100%' height='100%' display='flex' flexDir='column' >
+                            <Heading textAlign='center' overflow='hidden' >Who are we?</Heading>
+                            <Heading overflow='hidden' width='100%' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
+                                The Point Blank Debate Society is a subsidiary of The Literary Club run by the students of City Montessori School Cambridge Section.
+                                We are passionate about finding solutions to today’s problems through discourse and we welcome all enthusiastic participants to our very own debate competition; 
+                                Arguably the best.
+                            </Heading>
+                        </Center>
+                        <Box 
+                            h='100%' 
+                            w='100%' 
+                            background="url(/Image/PointBlank.png)" 
+                            backgroundSize='cover'
+                            backgroundPosition='upper'
+                            backgroundRepeat='no-repeat'
+                        /> 
                 </HStack>
             </Box>
 
@@ -256,7 +256,6 @@ function Body(){
                 </HStack>
 
             </Box>
-
             <Box className='format' bg={tertiary_boxBg} padding={12} height='100vh' width='100%' >
                     <HStack 
                         bg={useColorModeValue('teal.200','blue.900')} 
