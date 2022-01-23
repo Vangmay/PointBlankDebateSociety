@@ -20,7 +20,8 @@ import {
     DrawerContent,
     DrawerFooter,
     Text,
-    Link
+    Link,
+    Img
 } from '@chakra-ui/react';
 import { Link as Linkk, animateScroll as scroll } from "react-scroll";
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
@@ -108,7 +109,7 @@ function Navbar(){
                 w='100%'
                 justifyContent='space-between'
                 >
-                school_mascot
+                <Img w='150px' bg='rgba(255,255,255,0.8)' src='/Image/cambridge.png'></Img>
                 
                  <Flex 
                     justify="space-between" 
@@ -184,18 +185,22 @@ function Navbar(){
 }
 
 function Card(props){
-    const card_bg=useColorModeValue('teal.300','blue.800')
+    const card_bg=useColorModeValue('rgba(79, 209, 197,0.5)','rgba(42, 67, 101,0.8)')
     return(
-        <Box height='100%' width='500px' borderRadius={12}>
-            <Center bg={card_bg} height='100%' flexDir='column'>
+        <Box height='100%' bg={card_bg} minW='500px'transition='0.2s ease-in' _hover={{boxShadow:'12px 12px  #f2f2f2'}} width='500px' borderRadius={12}>
+            <Center height='100%' flexDir='column'>
                 <Heading
                     overflow='hidden'
-                >
+                    width='100%'
+                    textAlign='center'
+                    >
                     {props.title}
                 </Heading>
                 <Heading
                     fontSize={{base:'10px',md:'15px'}}
                     overflow='hidden'
+                    width='100%'
+                    textAlign='center'
                 >
                     {props.desc}
                 </Heading>
@@ -252,21 +257,20 @@ function Body(){
 
             </Box>
 
-            <Box className='format' bg={tertiary_boxBg} padding={12} height='100vh' width='100%' aria-label="AboutCompetition">
-                <HStack 
-                    bg={useColorModeValue('teal.200','blue.900')} 
-                    height='100%' 
-                    width='100%' 
-                    justifyContent='space-evenly'
-                    flexDirection={{base:'column',md:'column',lg:'row'}}
-                    padding={12}
-                    borderRadius={12}
-                >
-                    <Card title='Day-1' desc="Small description of what happens in day 1"></Card>
-                    <Card title='Day-2' desc="Small description of what happens in day 2"></Card>
-                    <Card title='Day-3' desc="Small description of what happens in day 3"></Card>
-                </HStack>
-                
+            <Box className='format' bg={tertiary_boxBg} padding={12} height='100vh' width='100%' >
+                    <HStack 
+                        bg={useColorModeValue('teal.200','blue.900')} 
+                        height='100%' 
+                        width='100%' 
+                        flexDirection={{base:'column',md:'column',lg:'row'}}
+                        padding={12}
+                        borderRadius={12}
+                        justifyContent='space-evenly'
+                        >
+                        <Card title='Day-1' desc="Small description of what happens in day 1"></Card>
+                        <Card title='Day-2' desc="Small description of what happens in day 2"></Card>
+                        <Card title='Day-3' desc="Small description of what happens in day 3"></Card>
+                    </HStack>
             </Box>
 
             <Box 
@@ -279,8 +283,9 @@ function Body(){
                 textAlign='center'
                 paddingTop={5}
                 className='register'
+                padding={12}
             >
-                <Widget id="z552lHMM" style={{ zIndex:10,width: '80%' , height:'90%' }} className="my-form"></Widget>
+                <Widget id="z552lHMM" style={{ zIndex:10,width: '100%' , height:'100%' }} className="my-form"></Widget>
             </Box>
         </>
     )    
@@ -317,7 +322,7 @@ function Footer(){
                 <Link _hover='none'href='http://www.cmseducation.org/cambridge/' target='_blank' w='fit-content'>
                     <Button leftIcon={<CgWebsite/>} minWidth='140px'>Website</Button>
                 </Link>
-                <Link _hover='none'href='https://www.instagram.com/cms.cambridge/http://www.cmseducation.org/cambridge/' target='_blank' w='fit-content'>
+                <Link _hover='none'href='https://www.instagram.com/cms.cambridge/' target='_blank' w='fit-content'>
                 <Button leftIcon={<AiFillInstagram/>} minWidth='140px' >Instagram</Button>
                 </Link>
                 <Link _hover='none'href='https://www.facebook.com/cmsgn2cambridge/' target='_blank' w='fit-content'>
