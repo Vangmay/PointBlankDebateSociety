@@ -23,13 +23,14 @@ import {
     Link,
     Img
 } from '@chakra-ui/react';
+import Hero from '../components/hero'
 import { Link as Linkk, animateScroll as scroll } from "react-scroll";
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import React,{useRef,useState} from 'react';
 import {AiFillFacebook,AiFillHeart,AiFillInstagram} from 'react-icons/ai'
 import { CgWebsite} from 'react-icons/cg'
 import { Widget } from '@typeform/embed-react';
 import { RiMoonFill, RiSunLine } from "react-icons/ri";
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 
 // colorscheme = {
 //     purple:'#805ee7',
@@ -78,7 +79,6 @@ export const NewTheme = extendTheme({
     components
 })
 
-
 function Navbar(){
     const { colorMode, toggleColorMode } = useColorMode()
     const btn_color = useColorModeValue('light','dark') 
@@ -108,7 +108,7 @@ function Navbar(){
                 alignItems='center'
                 w='100%'
                 justifyContent='space-between'
-                >
+            >
                 <Img w='150px' bg='rgba(255,255,255,0.8)' src='/Image/cambridge.png'></Img>
                 
                  <Flex 
@@ -116,20 +116,20 @@ function Navbar(){
                     w='full' 
                     justifyContent="center" 
                     align="center" 
+                    h = 'full'
                     display={['none','none','flex','flex']}
                 >
                     <Linkk  to="about"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >About</Button></Linkk>
-                    <Linkk  to="competition"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Arguably The Best</Button></Linkk>
+                    <Linkk  to="competition"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >The Events</Button></Linkk>
                     <Linkk  to="format"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Format</Button></Linkk>
                     <Linkk  to="register"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Register</Button></Linkk>
+                    <IconButton
+                        icon={colorMode === "light" ? <RiMoonFill /> : <RiSunLine />}
+                        onClick={toggleColorMode}
+                        zIndex='10000'
+                        marginX={12}
+                    />
                 </Flex>
-                <IconButton
-                    icon={colorMode === "light" ? <RiMoonFill /> : <RiSunLine />}
-                    onClick={toggleColorMode}
-                    borderRadius={50}
-                    zIndex='10000'
-                    marginX={12}
-                />
                 <IconButton
                     icon = {<HamburgerIcon/>}
                     onClick={onOpen}
@@ -163,6 +163,13 @@ function Navbar(){
                         // display={['none','none','flex','flex']}
                         >
                         <IconButton icon = {<CloseIcon/>} bg={nav_bg} my={5}  marginX={2} onClick={onClose} maxW='fit-content'/>
+                        <IconButton
+                            icon={colorMode === "light" ? <RiMoonFill /> : <RiSunLine />}
+                            onClick={toggleColorMode}
+                            borderRadius={50}
+                            zIndex='10000'
+                            marginX={12}
+                        />
                         <Linkk  to="about"smooth={true} duration={1000}>
                             <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >About</Button>
                         </Linkk>
@@ -216,8 +223,24 @@ function Body(){
     return(
         <>
             <Box bg={box_bg} className='about' height='100vh' width='100%' aria-label="Introduction">
-                <HStack  justifyContent='center'height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
-                        <Center textAlign='center' display='flex' justifyContent='center' flexDirection='column' padding='0' width='100%' height='100%' display='flex' flexDir='column' >
+                <VStack h='100%'>
+                    <Box
+                        h='100%' 
+                                w='100%' 
+                                background="url(/Image/PointBlank.png)" 
+                                backgroundSize='cover'
+                                backgroundPosition='upper'
+                                backgroundRepeat='no-repeat'
+                    />
+                    <Box h='100%'>
+                        <h1>hello</h1>
+                    </Box>
+                </VStack>
+            </Box>
+
+            <Box bg={box_bg} className='about' height='100vh' width='100%' aria-label="Introduction">
+                <VStack  justifyContent='center'height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
+                        <Center textAlign='center' justifyContent='center' padding='0' width='100%' height='100%' display='flex' flexDir='column' >
                             <Heading textAlign='center' overflow='hidden' >Who are we?</Heading>
                             <Heading overflow='hidden' width='100%' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
                                 The Point Blank Debate Society is a subsidiary of The Literary Club run by the students of City Montessori School Cambridge Section.
@@ -233,7 +256,7 @@ function Body(){
                             backgroundPosition='upper'
                             backgroundRepeat='no-repeat'
                         /> 
-                </HStack>
+                </VStack>
             </Box>
 
             <Box className='competition' bg={secondary_boxBg} height='100vh' width='100%' aria-label="AboutCompetition">
@@ -338,7 +361,6 @@ function Debate() {
         <>
             <Navbar/>
             <Body/>
-            <Footer/>
         </>
     )
 }
