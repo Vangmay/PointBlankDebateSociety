@@ -29,7 +29,7 @@ import React,{useRef,useState} from 'react';
 import {AiFillFacebook,AiFillHeart,AiFillInstagram} from 'react-icons/ai'
 import { CgWebsite} from 'react-icons/cg'
 import { Widget } from '@typeform/embed-react';
-import { RiMoonFill, RiSunLine } from "react-icons/ri";
+import { RiMoonFill, RiParagraph, RiSunLine } from "react-icons/ri";
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 
 // colorscheme = {
@@ -191,30 +191,6 @@ function Navbar(){
     )
 }
 
-function Card(props){
-    const card_bg=useColorModeValue('rgba(79, 209, 197,0.5)','rgba(42, 67, 101,0.8)')
-    return(
-        <Box height='100%' bg={card_bg} minW='500px'transition='0.2s ease-in' _hover={{boxShadow:'12px 12px  #f2f2f2'}} width='500px' borderRadius={12}>
-            <Center height='100%' flexDir='column'>
-                <Heading
-                    overflow='hidden'
-                    width='100%'
-                    textAlign='center'
-                    >
-                    {props.title}
-                </Heading>
-                <Heading
-                    fontSize={{base:'10px',md:'15px'}}
-                    overflow='hidden'
-                    width='100%'
-                    textAlign='center'
-                >
-                    {props.desc}
-                </Heading>
-            </Center>
-        </Box>
-    )
-}
 
 function Body(){
     const box_bg = useColorModeValue('teal.300','cyan.500')
@@ -222,21 +198,29 @@ function Body(){
     const tertiary_boxBg = useColorModeValue('blue.300','blue.500')
     return(
         <>
-            <Box bg={box_bg} className='about' height='100vh' width='100%' aria-label="Introduction">
-                <VStack h='100%'>
-                    <Box
-                        h='100%' 
-                                w='100%' 
-                                background="url(/Image/PointBlank.png)" 
-                                backgroundSize='cover'
-                                backgroundPosition='upper'
-                                backgroundRepeat='no-repeat'
-                    />
-                    <Box h='100%'>
-                        <h1>hello</h1>
-                    </Box>
-                </VStack>
-            </Box>
+            <Center
+                h='100%' 
+                maxWidth='100%'
+                background="url(/Image/Hero.png)" 
+                backgroundSize='cover'
+                backgroundPosition='center'
+                backgroundRepeat='no-repeat'
+                backgroundAttachment='fixed'
+                flexDir='column' 
+                className='about' height='100vh' aria-label="Introduction">
+                <Center
+                    h='100%' 
+                    maxWidth='50%'
+                    flexDir='column'
+                >
+                    <Heading overflow='hidden' color='gray.800' fontsize={{base:'24px', md:'12px'}}>
+                        Name
+                    </Heading>
+                    <Heading bg='white' borderRadius='5px' opacity = '90%' overflow='hidden'color='gray.800' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin commodo ultricies erat, ac euismod massa viverra in. Morbi malesuada est sed nisl congue, ac fringilla tortor mattis. Sed feugiat pellentesque dui quis condimentum. Maecenas vitae elementum nisl. Integer accumsan elit sit amet tellus interdum suscipit. Phasellus ac odio fringilla, ultricies ligula sit amet, consectetur lorem. Suspendisse potenti. Donec metus nunc, ornare id viverra eget, pellentesque sed libero. Integer ut nisi facilisis, posuere orci non, rhoncus ante. Aliquam eget massa congue, venenatis ligula eu, rutrum eros. Cras et dignissim arcu. Maecenas sed laoreet turpis. Cras et fermentum felis.
+                    </Heading>
+                </Center>
+            </Center>
 
             <Box bg={box_bg} className='about' height='100vh' width='100%' aria-label="Introduction">
                 <VStack  justifyContent='center'height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
@@ -289,9 +273,6 @@ function Body(){
                         borderRadius={12}
                         justifyContent='space-evenly'
                         >
-                        <Card title='Day-1' desc="Small description of what happens in day 1"></Card>
-                        <Card title='Day-2' desc="Small description of what happens in day 2"></Card>
-                        <Card title='Day-3' desc="Small description of what happens in day 3"></Card>
                     </HStack>
             </Box>
 
