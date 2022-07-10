@@ -84,7 +84,7 @@ function Navbar(){
     const btn_color = useColorModeValue('light','dark') 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
-    const nav_bg = useColorModeValue('#BEE3F8','gray.800')
+    const nav_bg = useColorModeValue('rgba(190, 227, 248,0.3)','rgba(26, 32, 44,0.3)')
     return(
         <Box
         w='100vw'
@@ -99,6 +99,7 @@ function Navbar(){
         justifyContent='center'
         overflow='hidden'
         zIndex='100000000000'
+        backdropFilter='blur(4px)'
         >
             <Container
                 display='flex'
@@ -119,6 +120,7 @@ function Navbar(){
                     h = 'full'
                     display={['none','none','flex','flex']}
                 >
+                    <Linkk  to="Hero"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Home</Button></Linkk>
                     <Linkk  to="about"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >About</Button></Linkk>
                     <Linkk  to="competition"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >The Events</Button></Linkk>
                     <Linkk  to="format"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Format</Button></Linkk>
@@ -198,10 +200,35 @@ function Body(){
     const tertiary_boxBg = useColorModeValue('blue.300','blue.500')
     return(
         <>
+        {/* Hero:  */}
             <Center
                 h='100%' 
                 maxWidth='100%'
                 background="url(/Image/Hero.png)" 
+                backgroundSize='cover'
+                backgroundPosition='center'
+                backgroundRepeat='no-repeat'
+                backgroundAttachment='fixed'
+                flexDir='column' 
+                className='Hero' height='100vh' aria-label="Introduction">
+                <Center
+                    h='100%' 
+                    maxWidth='50%'
+                    flexDir='column'
+                >
+                    <Heading overflow='hidden' color='gray.800' fontsize={{base:'24px', md:'12px'}}>
+                        Name
+                    </Heading>
+                    <Heading bg='rgba(0,0,0,0.3)' borderRadius='5px' opacity = '90%' overflow='hidden'color='#EEE5E9' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin commodo ultricies erat, ac euismod massa viverra in. Morbi malesuada est sed nisl congue, ac fringilla tortor mattis. Sed feugiat pellentesque dui quis condimentum. Maecenas vitae elementum nisl. Integer accumsan elit sit amet tellus interdum suscipit. Phasellus ac odio fringilla, ultricies ligula sit amet, consectetur lorem. Suspendisse potenti. Donec metus nunc, ornare id viverra eget, pellentesque sed libero. Integer ut nisi facilisis, posuere orci non, rhoncus ante. Aliquam eget massa congue, venenatis ligula eu, rutrum eros. Cras et dignissim arcu. Maecenas sed laoreet turpis. Cras et fermentum felis.
+                    </Heading>
+                </Center>
+            </Center>
+        {/* Second slide _ About us */}
+            <Center
+                h='100%' 
+                maxWidth='100%'
+                background="url(/Image/topo.png)"
                 backgroundSize='cover'
                 backgroundPosition='center'
                 backgroundRepeat='no-repeat'
@@ -212,58 +239,39 @@ function Body(){
                     h='100%' 
                     maxWidth='50%'
                     flexDir='column'
-                >
-                    <Heading overflow='hidden' color='gray.800' fontsize={{base:'24px', md:'12px'}}>
-                        Name
+                    >
+                    <Heading overflow='hidden' color='white' fontsize={{base:'24px', md:'12px'}}>
+                        About us
                     </Heading>
-                    <Heading bg='white' borderRadius='5px' opacity = '90%' overflow='hidden'color='gray.800' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin commodo ultricies erat, ac euismod massa viverra in. Morbi malesuada est sed nisl congue, ac fringilla tortor mattis. Sed feugiat pellentesque dui quis condimentum. Maecenas vitae elementum nisl. Integer accumsan elit sit amet tellus interdum suscipit. Phasellus ac odio fringilla, ultricies ligula sit amet, consectetur lorem. Suspendisse potenti. Donec metus nunc, ornare id viverra eget, pellentesque sed libero. Integer ut nisi facilisis, posuere orci non, rhoncus ante. Aliquam eget massa congue, venenatis ligula eu, rutrum eros. Cras et dignissim arcu. Maecenas sed laoreet turpis. Cras et fermentum felis.
+                    <Heading bg='rgba(0,0,0,0.3)' borderRadius='5px' opacity = '90%' overflow='hidden'color='#EEE5E9' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
+                        Lorem ipsum blahblahblahblahblahblahblahblah
                     </Heading>
                 </Center>
             </Center>
 
-            <Box bg={box_bg} className='about' height='100vh' width='100%' aria-label="Introduction">
-                <VStack  justifyContent='center'height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
-                        <Center textAlign='center' justifyContent='center' padding='0' width='100%' height='100%' display='flex' flexDir='column' >
-                            <Heading textAlign='center' overflow='hidden' >Who are we?</Heading>
-                            <Heading overflow='hidden' width='100%' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
-                                The Point Blank Debate Society is a subsidiary of The Literary Club run by the students of City Montessori School Cambridge Section.
-                                We are passionate about finding solutions to today’s problems through discourse and we welcome all enthusiastic participants to our very own debate competition; 
-                                Arguably the best.
-                            </Heading>
-                        </Center>
-                        <Box 
-                            h='100%' 
-                            w='100%' 
-                            background="url(/Image/PointBlank.png)" 
-                            backgroundSize='cover'
-                            backgroundPosition='upper'
-                            backgroundRepeat='no-repeat'
-                        /> 
-                </VStack>
-            </Box>
 
+                {/* ThirdSlide_AboutCompetition */}
             <Box className='competition' bg={secondary_boxBg} height='100vh' width='100%' aria-label="AboutCompetition">
                 <HStack height='100vh' width='100%' flexDirection={{base:"column",md:"row",lg:'row'}}>
                     <Center padding='0' height='100%' width='100%'display='flex' flexDir='column' margin='0px'>
-                        <Heading textAlign='center' overflow='hidden' >What is Arguably The Best?</Heading>
+                        <Heading textAlign='center' overflow='hidden' >What is _Name_?</Heading>
                         <Heading overflow='hidden' fontSize={{base:"12px",md:'15px',lg:'18px'}}textAlign='center' >
-                        As the name implies, our debate competitions aims to find answers through the rigorous path of critical thinking. 
-                        No angle goes unexplored when participants dissect each claim and present their views. 
-                        Arguments laid out and scrutinised to find the best answers is what makes us Arguably The Best.
+                            Good question
                         </Heading>
                     </Center>
                     <Box 
                         h='100%' 
                         w='100%' 
-                        background="url(/Image/cover.PNG)"
+                        background="url(/Image/fluid.PNG)"
                         backgroundSize='cover'
                         backgroundRepeat='no-repeat'
+                        backgroundPosition='center'
                     /> 
                 </HStack>
 
             </Box>
-            <Box className='format' bg={tertiary_boxBg} padding={12} height='100vh' width='100%' >
+
+            <Box bg={tertiary_boxBg} className='format' padding={12} height='100vh' width='100%' >
                     <HStack 
                         bg={useColorModeValue('teal.200','blue.900')} 
                         height='100%' 
@@ -273,22 +281,8 @@ function Body(){
                         borderRadius={12}
                         justifyContent='space-evenly'
                         >
+                            dsadsadss
                     </HStack>
-            </Box>
-
-            <Box 
-                bg='gray.400' 
-                height='100vh' 
-                width='100vw' 
-                display='flex' 
-                justifyContent='center' 
-                alignContent='center'
-                textAlign='center'
-                paddingTop={5}
-                className='register'
-                padding={12}
-            >
-                <Widget id="z552lHMM" style={{ zIndex:10,width: '100%' , height:'100%' }} className="my-form"></Widget>
             </Box>
         </>
     )    
@@ -342,6 +336,7 @@ function Debate() {
         <>
             <Navbar/>
             <Body/>
+            <Footer/>
         </>
     )
 }
