@@ -21,7 +21,7 @@ import {
     DrawerFooter,
     Text,
     Link,
-    Img
+    Img,
 } from '@chakra-ui/react';
 import Hero from '../components/hero'
 import { Link as Linkk, animateScroll as scroll } from "react-scroll";
@@ -280,8 +280,7 @@ function Body(){
                         padding={12}
                         borderRadius={12}
                         justifyContent='space-evenly'
-                        >
-                            dsadsadss
+                        >                        
                     </HStack>
             </Box>
         </>
@@ -307,8 +306,7 @@ function Footer(){
                 overflow='hidden'
                 height='100%'
             >
-                This website is made by Vangmay in collaboration with the literary club. 
-                More details about our school can be found from the following links.
+                TextAndStuffTextAndStuffTextAndStuffTextAndStuffTextAndStuffTextAndStuffTextAndStuff
             </Heading>
             <VStack 
                 width='100%' 
