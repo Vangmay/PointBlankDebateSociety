@@ -277,10 +277,13 @@ function Body(){
                         height='100%' 
                         width='100%' 
                         flexDirection={{base:'column',md:'column',lg:'row'}}
-                        padding={12}
                         borderRadius={12}
                         justifyContent='space-evenly'
-                        >                        
+                        background="url(/Image/details.jpg)" 
+                        backgroundSize='contain'
+                        backgroundPosition='center'
+                        backgroundRepeat='no-repeat'
+                        >   
                     </HStack>
             </Box>
         </>
