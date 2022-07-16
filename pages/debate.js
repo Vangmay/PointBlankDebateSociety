@@ -204,7 +204,7 @@ function Body(){
             <Center
                 h='100%' 
                 maxWidth='100%'
-                background="url(/Image/Hero.PNG)" 
+                background="url(/Image/optimized/Hero.webp)" 
                 backgroundSize='cover'
                 backgroundPosition='center'
                 backgroundRepeat='no-repeat'
@@ -228,7 +228,7 @@ function Body(){
             <Center
                 h='100%' 
                 maxWidth='100%'
-                background="url(/Image/topo.png)"
+                background="url(/Image/optimized/topo.webp)"
                 backgroundSize='cover'
                 backgroundPosition='center'
                 backgroundRepeat='no-repeat'
@@ -262,7 +262,7 @@ function Body(){
                     <Box 
                         h='100%' 
                         w='100%' 
-                        background="url(/Image/fluid.PNG)"
+                        background="url(/Image/optimized/fluid.webp)"
                         backgroundSize='cover'
                         backgroundRepeat='no-repeat'
                         backgroundPosition='center'
