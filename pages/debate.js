@@ -204,7 +204,7 @@ function Body(){
             <Center
                 h='100%' 
                 maxWidth='100%'
-                background="url(/Image/Hero.png)" 
+                background="url(/Image/Hero.PNG)" 
                 backgroundSize='cover'
                 backgroundPosition='center'
                 backgroundRepeat='no-repeat'
