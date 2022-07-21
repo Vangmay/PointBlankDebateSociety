@@ -31,21 +31,15 @@ import { CgWebsite} from 'react-icons/cg'
 import { Widget } from '@typeform/embed-react';
 import { RiMoonFill, RiParagraph, RiSunLine } from "react-icons/ri";
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import Card from '../components/card';
+import Details from '../components/details';
 
-// colorscheme = {
-//     purple:'#805ee7',
-//     lighter_purple:"8474c3",
-//     blue:"607ac9",
-//     darker_blue:"5460cc",
-//     darkest_blue:"3750E0"  
-// }
-
-// colorscheme_light = {
-//     Shadow_blue:"7e93c9"  
-//     Light_periwinkle:"D4DAEC"
-//     Light_lavender:"CFC6E1",
-//     Beau_blue:"CADAE0"
-//     Opal:"B7D3D3"
+// colorScheme = {
+//     131521
+//     304261
+//     4F71A3
+//     639EC2
+//     C6D7E6
 // }
 
 const components = {
@@ -60,9 +54,9 @@ const components = {
                 }
             },
             light:{
-                color:'black',
+                color:'#4F71A3',
                 _hover:{
-                    color:'#0987A0',
+                    color:'#C6D7E6',
                     textDecoration:'underline'
                 }
             },
@@ -84,7 +78,7 @@ function Navbar(){
     const btn_color = useColorModeValue('light','dark') 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
-    const nav_bg = useColorModeValue('rgba(190, 227, 248,0.3)','rgba(26, 32, 44,0.3)')
+    const nav_bg = useColorModeValue('rgba(19, 21, 33, 0.3)','rgba(26, 32, 44,0.3)')
     return(
         <Box
         w='100vw'
@@ -196,8 +190,10 @@ function Navbar(){
 
 function Body(){
     const box_bg = useColorModeValue('teal.300','cyan.500')
-    const secondary_boxBg = useColorModeValue('cyan.200','purple.500')
+    const secondary_boxBg = useColorModeValue('#6E93C2','#131521')
     const tertiary_boxBg = useColorModeValue('blue.300','blue.500')
+    const card_bg=useColorModeValue('teal.300','blue.800')
+    const secondary_cardBg = useColorModeValue('blue.800','teal.300')
     return(
         <>
         {/* Hero:  */}
@@ -271,7 +267,7 @@ function Body(){
 
             </Box>
 
-            <Box bg={tertiary_boxBg} className='format' padding={12} height='100vh' width='100%' >
+            <Box className='format' padding={12} height='100vh' width='100%' >
                     <HStack 
                         bg={useColorModeValue('teal.200','blue.900')} 
                         height='100%' 
@@ -279,13 +275,18 @@ function Body(){
                         flexDirection={{base:'column',md:'column',lg:'row'}}
                         borderRadius={12}
                         justifyContent='space-evenly'
-                        background="url(/Image/details.jpg)" 
-                        backgroundSize='contain'
+                        backgroundSize='100%'
                         backgroundPosition='center'
                         backgroundRepeat='no-repeat'
-                        >   
+                        overflow="none"
+                    >
+                        <Card bg={card_bg} title='Day-1' desc='description'/>
+                        <Card bg={secondary_cardBg}title='Day-2' desc='description'/>
+                        <Card bg={card_bg}title='Day-3' desc='description'/>
                     </HStack>
             </Box>
+
+            <Details></Details>
         </>
     )    
 }
