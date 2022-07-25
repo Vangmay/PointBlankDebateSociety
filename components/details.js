@@ -1,4 +1,4 @@
-import { Box,HStack,Center,Heading, paragraph,useColorModeValue } from "@chakra-ui/react"
+import { Box,HStack,Center,Heading, paragraph,useColorModeValue, Text } from "@chakra-ui/react"
 
 function Details(props){
     return(
@@ -15,7 +15,25 @@ function Details(props){
                 backgroundRepeat='no-repeat'
                 overflow="none"
             >
-                
+                <Center 
+                    height='100%' 
+                    textAlign='center'
+                    backgroundPosition='center'
+                    backgroundImage={props.Image}
+                    h='100%' 
+                    width='100%'
+                    background="url(/Image/optimized/fluid.webp)"
+                    backgroundSize='cover'
+                    backgroundRepeat='no-repeat'
+                >
+                    <Heading overflow='hidden'>{props.Name}</Heading>
+                </Center>
+                <Center w='100%' h='100%' flexDir='column'>
+                    <Text>{props.Desc}</Text>
+                    <Text>Track 1</Text>
+                    <Text>Track 2</Text>
+                    <Text>Track 3</Text>
+                </Center>
             </HStack>
         </Box>
     )

@@ -118,70 +118,14 @@ function Navbar(){
                     <Linkk  to="about"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >About</Button></Linkk>
                     <Linkk  to="competition"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >The Events</Button></Linkk>
                     <Linkk  to="format"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Format</Button></Linkk>
-                    <Linkk  to="register"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Register</Button></Linkk>
-                    <IconButton
-                        icon={colorMode === "light" ? <RiMoonFill /> : <RiSunLine />}
-                        onClick={toggleColorMode}
-                        zIndex='10000'
-                        marginX={12}
-                    />
+                    <Linkk  to="Events"smooth={true} duration={1000}><Button variant={btn_color} _focus={{outline:'none'}} >Register</Button></Linkk>
                 </Flex>
                 <IconButton
-                    icon = {<HamburgerIcon/>}
-                    onClick={onOpen}
-                    display={['flex','flex','none','none']}
-                    marginRight={12}
-                    ref={btnRef}
-                    w='20px'
+                    icon={colorMode === "light" ? <RiMoonFill /> : <RiSunLine />}
+                    onClick={toggleColorMode}
+                    zIndex='10000'
+                    marginX={12}
                 />
-            {/* MOBILENAVVVVVVVVVVVVVVVVVVVVVVVVVVV */}
-            <Drawer
-                isOpen={isOpen}
-                placement='top'
-                onClose={onClose}
-                finalFocusRef={btnRef}
-                padding={10}
-                >
-                <DrawerOverlay/>
-                <DrawerContent 
-                    bg={nav_bg} 
-                >
-                    <DrawerFooter padding='12px'/>
-                    <DrawerBody>
-                    <Flex 
-                        justify="space-between" 
-                        w='full' 
-                        h='full'
-                        justifyContent="center" 
-                        align="center" 
-                        flexDirection='column'
-                        padding={10}
-                        // display={['none','none','flex','flex']}
-                        >
-                        <IconButton icon = {<CloseIcon/>} bg={nav_bg} my={5}  marginX={2} onClick={onClose} maxW='fit-content'/>
-                        <IconButton
-                            icon={colorMode === "light" ? <RiMoonFill /> : <RiSunLine />}
-                            onClick={toggleColorMode}
-                            borderRadius={50}
-                            zIndex='10000'
-                            marginX={12}
-                        />
-                        <Linkk  to="about"smooth={true} duration={1000}>
-                            <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >About</Button>
-                        </Linkk>
-                        <Linkk  to="competition"smooth={true} duration={1000}>
-                            <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Register</Button>
-                        </Linkk>
-                        <Linkk  to="format"smooth={true} duration={1000}>
-                            <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Format</Button>
-                        </Linkk>
-                        <Linkk  to="register"smooth={true} duration={1000}>
-                            <Button variant={btn_color} my={5}  marginX={2} _focus={{outline:'none'}} >Winners</Button>
-                        </Linkk>
-                    </Flex>
-                    </DrawerBody>
-                </DrawerContent>
-            </Drawer>
             </Container>
         </Box>
     )
@@ -267,10 +211,10 @@ function Body(){
 
             </Box>
 
-            <Box className='format' padding={12} height='100vh' width='100%' >
+            <Box className='Events' padding={12} height='100vh' overflow='hidden' width='100%' >
                     <HStack 
                         bg={useColorModeValue('teal.200','blue.900')} 
-                        height='100%' 
+                        height='90%' 
                         width='100%' 
                         flexDirection={{base:'column',md:'column',lg:'row'}}
                         borderRadius={12}
@@ -284,9 +228,12 @@ function Body(){
                         <Card bg={secondary_cardBg}title='Day-2' desc='description'/>
                         <Card bg={card_bg}title='Day-3' desc='description'/>
                     </HStack>
+                    <Text w='100%' textAlign='center'>Scroll down for more.</Text>
             </Box>
 
-            <Details></Details>
+            <Details Image='url(/Image/optimised/fluid.webp)'Name='Event 1' Desc='This is a cool description. '/>
+            <Details Image='url(/Image/optimised/fluid.webp)'Name='Event 1' Desc='This is a cool description. '/>
+            <Details Image='url(/Image/optimised/fluid.webp)'Name='Event 1' Desc='This is a cool description. '/>
         </>
     )    
 }
